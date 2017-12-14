@@ -15,6 +15,12 @@ class ToDoController():
             self.to_do.add_new_task()
         elif sys.argv[1] == "-r":
             self.to_do.remove_task()
+        elif sys.argv[1] == "-c":
+            self.to_do.check_task()
+        else:
+            print("Unsupported argument" + "\n")
+            self.to_do.print_usage()
+
 
 to_do = ToDoController()
 to_do.workflow()
