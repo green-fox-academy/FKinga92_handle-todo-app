@@ -26,16 +26,21 @@ class ToDo(object):
                 my_file.write("\n" + "[ ] " + str(sys.argv[2]))
 
     def remove_task(self):
-        if len(self.content) >= 2:
+        if int(sys.argv[2]) <= len(self.content) and len(self.content) >= 2:
             self.content.remove(self.content[int(sys.argv[2]) - 1])
-        self.update_file()
+            self.update_file()
+        else:
+            print("Unable to remove: index is out of bound")
 
     def check_task(self):
-        index_of_completed = int(sys.argv[2])
-        for i in range(len(self.content)):
-            if i == index_of_completed - 1:
-                self.content[i] = "[x]" + self.content[i][3: ]
-        self.update_file()
+        if int(sys.argv[2]) <= len(self.content):
+            index_of_completed = int(sys.argv[2])
+            for i in range(len(self.content)):
+                if i == index_of_completed - 1:
+                    self.content[i] = "[x]" + self.content[i][3: ]
+            self.update_file()
+        else:
+            print("Unable to remove: index is out of bound")
 
     def update_file(self):
         updated_file = open("my_todos.txt", "w")
