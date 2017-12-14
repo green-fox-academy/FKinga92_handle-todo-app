@@ -11,6 +11,8 @@ class ToDoController():
             self.to_do.print_usage()
         elif len(sys.argv) == 2 and sys.argv[1] == "-l":
             self.to_do.list_tasks()
+        elif len(sys.argv) == 2 and sys.argv[1] == "-a":
+            print("Unable to add: no task provided")
         elif sys.argv[1] == "-a":
             self.to_do.add_new_task()
         elif sys.argv[1] == "-r":
