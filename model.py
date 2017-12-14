@@ -23,7 +23,7 @@ class ToDo(object):
             if not self.content:
                 my_file.write("[ ] " + str(sys.argv[2]))
             else:
-                 my_file.write("\n" + "[ ] " + str(sys.argv[2]))
+                my_file.write("\n" + "[ ] " + str(sys.argv[2]))
 
     def remove_task(self):
         if len(self.content) >= 2:
